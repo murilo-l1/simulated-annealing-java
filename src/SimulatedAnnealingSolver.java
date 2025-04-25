@@ -1,3 +1,4 @@
+
 public class SimulatedAnnealingSolver {
 
     /**
@@ -15,19 +16,24 @@ public class SimulatedAnnealingSolver {
      * @param minTemp Temperatura mínima para encerrar a execução.
      * @return Um QueenBoard representando a melhor solução encontrada
      */
-    public static QueenBoard solve(int size, double initialTemp, double coolingRate, double minTemp) {
+    public static QueenBoard solve(int size, double initialTemp, double coolingRate, double minTemp, BoardLogger logger) {
         QueenBoard current = new QueenBoard(size);
         QueenBoard best = current;
         double temp = initialTemp;
 
+        logger.startLogging(temp, current);
+
         while (temp > minTemp && best.getConflicts() > 0) {
             QueenBoard neighbor = current.generateNeighbor();
             int delta = neighbor.getConflicts() - current.getConflicts();
+            logger.incrementAttempts();
 
             if (delta < 0 || Math.random() < Math.exp(-delta / temp)) {
                 current = neighbor;
+
                 if (current.getConflicts() < best.getConflicts()) {
                     best = current;
+                    logger.logImprovement(temp, best);
                 }
             }
 
@@ -36,5 +42,5 @@ public class SimulatedAnnealingSolver {
 
         return best;
     }
-
 }
+

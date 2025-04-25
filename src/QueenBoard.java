@@ -1,7 +1,7 @@
 import java.util.Random;
 
 public class QueenBoard {
-    private final int[] queens; // índice: coluna, valor: linha
+    public final int[] queens; // índice: coluna, valor: linha
     private final Random rand = new Random();
 
     public QueenBoard(int size) {
@@ -46,7 +46,7 @@ public class QueenBoard {
     public void printBoard() {
         for (int row = 0; row < queens.length; row++) {
             for (int col = 0; col < queens.length; col++) {
-                System.out.print(queens[col] == row ? " \uD83D\uDC51 " : " . ");
+                System.out.print(queens[col] == row ? " Q " : " . ");
             }
             System.out.println();
         }
