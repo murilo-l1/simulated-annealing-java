@@ -28,6 +28,7 @@ public class SimulatedAnnealingSolver {
             int delta = neighbor.getConflicts() - current.getConflicts();
             logger.incrementAttempts();
 
+            //se vizinho melhor (delta < 0), aceita. Vizinho pior, mas temp alta ? aceita pq esta dentro. Vizinho pior e temp baixa ? rejeita e abaixa temp.
             if (delta < 0 || Math.random() < Math.exp(-delta / temp)) {
                 current = neighbor;
 
@@ -43,4 +44,3 @@ public class SimulatedAnnealingSolver {
         return best;
     }
 }
-

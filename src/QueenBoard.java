@@ -1,7 +1,7 @@
 import java.util.Random;
 
 public class QueenBoard {
-    public final int[] queens; // índice: coluna, valor: linha
+    public final int[] queens; // índice: coluna, valor: linha | (i,arr[i])
     private final Random rand = new Random();
 
     public QueenBoard(int size) {
@@ -11,7 +11,7 @@ public class QueenBoard {
         }
     }
 
-    // procura por conflito na coluna da rainha e nas suas diagonais
+    // anda nas linhas procurando conflitos na coluna ou diagonais de um par de rainhas
     public int getConflicts() {
         int conflicts = 0;
         int n = queens.length;

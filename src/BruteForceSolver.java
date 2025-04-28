@@ -1,6 +1,7 @@
 
 public class BruteForceSolver {
 
+    //O(n!)
     public static QueenBoard solveBruteForce(int n) {
         int[] initial = new int[n];
         for (int i = 0; i < n; i++) {
@@ -21,7 +22,7 @@ public class BruteForceSolver {
         return best;
     }
 
-    // Gera próxima permutação lexicográfica (usado pelo brute force)
+    // Gera próxima permutação entre 
     private static boolean nextPermutation(int[] arr) {
         int i = arr.length - 2;
         while (i >= 0 && arr[i] >= arr[i + 1]) i--;

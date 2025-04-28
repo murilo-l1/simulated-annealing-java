@@ -7,21 +7,21 @@ public class BoardLogger {
         this.bestConflicts = initialBoard.getConflicts();
         this.attemptsSinceLastImprovement = 0;
 
-        System.out.println("Iniciando Simulated Annealing...\n");
-        System.out.println("Estado inicial:");
-        System.out.println("Temperatura: " + String.format("%.2f", temp));
-        System.out.println("Conflitos: " + bestConflicts);
+        System.out.println("Starting Simulated Annealing...\n");
+        System.out.println("Initial State:");
+        System.out.println("Temperature: " + String.format("%.2f", temp));
+        System.out.println("Conflicts: " + bestConflicts);
         initialBoard.printBoard();
         System.out.println("---------------------------------------");
     }
 
     public void logImprovement(double temp, QueenBoard board) {
         int currentConflicts = board.getConflicts();
-        System.out.println("Melhoria encontrada!");
-        System.out.println("Temperatura: " + String.format("%.2f", temp));
-        System.out.println("Conflitos: " + currentConflicts);
+        System.out.println("Improvement found!");
+        System.out.println("Temperature: " + String.format("%.2f", temp));
+        System.out.println("Conflicts: " + currentConflicts);
         board.printBoard();
-        System.out.println("Tentativas até melhoria: " + attemptsSinceLastImprovement);
+        System.out.println("Attempts till improvement: " + attemptsSinceLastImprovement);
         System.out.println("---------------------------------------");
         this.bestConflicts = currentConflicts;
         this.attemptsSinceLastImprovement = 0;

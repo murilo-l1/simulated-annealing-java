@@ -1,11 +1,11 @@
 public class ComparisonMain {
 
     public static void main(String[] args) {
-        int n = 13; //numero de rainhas e dimensao tabuleiro
+        int n = 12;
 
-        double initialTemp = 10; // grau de aleatoriedade e aceitação de mínimos locais
-        double coolingRate = 0.99;// grau de resfriamento: quanto maior, mais tentativas e maior probabilidade de achar o mínimo de conflitos
-        double minTemp = 0.001; // condicaco de parada, um número menor indica que ele vai testar por mais tempo
+        double initialTemp = 10;
+        double coolingRate = 0.99;
+        double minTemp = 0.001;
 
         System.out.println("=== SIMULATED ANNEALING ===");
         long startAnnealing = System.nanoTime();
@@ -13,16 +13,17 @@ public class ComparisonMain {
         long endAnnealing = System.nanoTime();
 
         System.out.println("\n=== SIMULATED ANNEALING ===");
-        System.out.println("Tempo: " + (endAnnealing - startAnnealing) / 1_000_000.0 + " ms");
-        System.out.println("Conflitos finais: " + annealingResult.getConflicts());
+        System.out.println("Exec. time: " + (endAnnealing - startAnnealing) / 1_000_000.0 + " ms");
+        System.out.println("Found conflicts: " + annealingResult.getConflicts());
         annealingResult.printBoard();
 
-        System.out.println("\n=== FORÇA BRUTA ===");
+        System.out.println("\n=== BRUTE FORCE ===");
         long startBrute = System.nanoTime();
         QueenBoard bruteResult = BruteForceSolver.solveBruteForce(n);
         long endBrute = System.nanoTime();
-        System.out.println("Tempo: " + (endBrute - startBrute) / 1_000_000.0 + " ms");
-        System.out.println("Conflitos finais: " + bruteResult.getConflicts());
+        System.out.println("Exec. time: " + (endBrute - startBrute) / 1_000_000.0 + " ms");
+        System.out.println("Found conflicts: " + bruteResult.getConflicts());
         bruteResult.printBoard();
     }
+
 }
